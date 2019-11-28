@@ -1,0 +1,156 @@
+@keyframes loading {
+    from {
+        stroke-dashoffset: 0;
+    }
+    to  {
+        stroke-dashoffset: 20;
+    }
+}
+
+@keyframes loading2 {
+    from {
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dashoffset: 250;
+    }
+}
+
+@keyframes loading3 {
+    from {stroke-dashoffset: 0;}
+    to   {stroke-dashoffset: 502;}
+}
+
+@keyframes breath {
+    from {
+        transform: translatey(0);
+    }
+    to   {
+        transform: translatey(-3px);
+    }
+}
+
+@keyframes strokeBreath {
+    from {
+        stroke-opacity: 0.2;
+        opacity: 0.2;
+    }
+    to   {
+        stroke-opacity: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes giggle {
+    0% {transform: translate(0, 0);}
+    2% {transform: translate(-2px, 0);}
+    4% {transform: translate(2px, 0);}
+    6% {transform: translate(0, 0);}
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+svg {
+    overflow: visible;
+}
+
+svg:hover * {
+    animation-play-state: paused;
+}
+
+svg:hover::after {
+    content: 'hover example, there should be displayed any information about this resource';
+    color: white;
+    border: 1px solid red;
+    height: 100px;
+    width: 200px;
+}
+
+
+
+svg:not(:last-child) {
+    margin-right: 20px;
+}
+
+.svg-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.svg-container:not(:first-child) {
+    margin-top: 20px;
+}
+
+
+.warning .loading {
+    stroke-dasharray: 10;
+    stroke-dashoffset: 10;
+    stroke-linecap: round;
+    animation-name: loading;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.warning2 .loading {
+    stroke-dasharray: 1, 250;
+    stroke-dashoffset: 0;
+    animation-name: loading2;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    stroke-linecap: round;
+    stroke-width: 4;
+}
+
+.warning3 .turning {
+    stroke-dasharray: 251, 251;
+    stroke-dashoffset: 0;
+    animation-name: loading3;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    stroke-linecap: round;
+}
+
+.success .breath, .success2 .breath {
+    animation-name: breath;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+
+.success2 .blink {
+    stroke-opacity: 0.2;
+    animation-name: strokeBreath;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+
+.error2 .giggle {
+    animation-name: giggle;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+div {
+    color: #aaaaaa;
+}
